@@ -39,36 +39,28 @@ class GenMenu(object):
         :param lst: A list of lunches.
         First item will be Monday and next Tuesday and so forth
         """
-        lst_copy = list(lst)
-        for item in lst:
-            for day in self.week_days:
-                if lst_copy:
-                    lunch = lst_copy.pop(0)
-                else:
-                    lunch = None
 
-                if lunch:
-                    self.lunch_menu[day] = lunch
+        self.lunch_menu = self.populate_menu(self.lunch_menu, lst)
 
 
-    def insert_dinner_menu(self, lst):
+    def insert_dinner_menu(self, inpt, file_format=None):
         """
         Inserts a list of dinners into the menu
 
-        :param lst: A list of dinners
+        :param inpt: An object with dinners.
+        If file_format is not specified, an iterator is expected
         First item will be Monday and next Tuesday and so forth
         """
-        lst_copy = list(lst)
-        for item in lst:
-            for day in self.week_days:
-                if lst_copy:
-                    dinner = lst_copy.pop(0)
-                else:
-                    dinner = None
 
-                if dinner:
-                    self.dinner_menu[day] = dinner
+        self.dinner_menu = self.populate_menu(self.dinner_menu, inpt)
 
+    # TODO: Use static method
+    def populate_menu(self, menu_dict, lst):
+
+        for day, food_item in zip(self.week_days, lst):
+            menu_dict[day] = food_item
+
+        return menu_dict
 
     def generate_menu(self):
         """

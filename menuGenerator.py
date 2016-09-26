@@ -40,7 +40,7 @@ class GenMenu(object):
         First item will be Monday and next Tuesday and so forth
         """
 
-        self.lunch_menu = self.populate_menu(self.lunch_menu, lst)
+        self.lunch_menu = GenMenu.populate_menu(self.lunch_menu, lst)
 
 
     def insert_dinner_menu(self, inpt, file_format=None):
@@ -52,12 +52,12 @@ class GenMenu(object):
         First item will be Monday and next Tuesday and so forth
         """
 
-        self.dinner_menu = self.populate_menu(self.dinner_menu, inpt)
+        self.dinner_menu = GenMenu.populate_menu(self.dinner_menu, inpt)
 
-    # TODO: Use static method
-    def populate_menu(self, menu_dict, lst):
+    @staticmethod
+    def populate_menu(menu_dict, lst):
 
-        for day, food_item in zip(self.week_days, lst):
+        for day, food_item in zip(GenMenu.week_days, lst):
             menu_dict[day] = food_item
 
         return menu_dict

@@ -1,12 +1,5 @@
 #!/usr/bin/env python
 
-# Ask for the schools week menu and store it
-
-# Create a list (and later on, a database) with user defined dinners
-
-# Output a week menu with dinners that's not the same base food as the lunch from school
-
-
 class GenMenu(object):
 
     week_days = [
@@ -47,12 +40,25 @@ class GenMenu(object):
         """
         Inserts a list of dinners into the menu
 
-        :param inpt: An object with dinners.
         If file_format is not specified, an iterator is expected
         First item will be Monday and next Tuesday and so forth
+
+        Supported file_format(s): json
         """
 
+        if file_format == 'json':
+            inpt = GenMenu.convert_json(inpt)
+
         self.dinner_menu = GenMenu.populate_menu(self.dinner_menu, inpt)
+
+    @staticmethod
+    def convert_json(json_obj):
+        """
+        Converts the json array to a list
+        """
+        import json
+
+        return json.loads(json_obj)
 
     @staticmethod
     def populate_menu(menu_dict, lst):

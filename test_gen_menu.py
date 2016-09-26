@@ -44,3 +44,4 @@ def test_insert_dinners_json():
     genmenu_instance = GenMenu()
     genmenu_instance.insert_dinner_menu(my_dinners_json, file_format='json')
     assert my_dinner_menu[0] == genmenu_instance.dinner_menu['Monday']
+    assert my_dinner_menu[1] == genmenu_instance.dinner_menu['Tuesday']

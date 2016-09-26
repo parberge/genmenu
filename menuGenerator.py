@@ -32,7 +32,7 @@ class GenMenu(object):
         'Sunday': {'lunch': '', 'dinner': ''},
     }
 
-    def insert_lunch_menu(self, lst):
+    def insert_lunch_menu(self, inpt):
         """
         Inserts a list of lunches into the menu
 
@@ -40,7 +40,7 @@ class GenMenu(object):
         First item will be Monday and next Tuesday and so forth
         """
 
-        self.lunch_menu = GenMenu.populate_menu(self.lunch_menu, lst)
+        self.lunch_menu = GenMenu.populate_menu(self.lunch_menu, inpt)
 
 
     def insert_dinner_menu(self, inpt, file_format=None):
@@ -56,6 +56,9 @@ class GenMenu(object):
 
     @staticmethod
     def populate_menu(menu_dict, lst):
+        """
+        Populate a menu with the items from a list
+        """
 
         for day, food_item in zip(GenMenu.week_days, lst):
             menu_dict[day] = food_item

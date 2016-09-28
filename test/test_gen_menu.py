@@ -3,7 +3,7 @@
 from menuGenerator import GenMenu
 import pytest
 import json
-
+import os
 
 my_lunch_menu = ['Köttbullar', 'hamburgare' ]
 my_dinner_menu = ['Pizza', 'Pasta carbonara' ]
@@ -45,3 +45,13 @@ def test_insert_dinners_json():
     genmenu_instance.insert_dinner_menu(my_dinners_json, file_format='json')
     assert my_dinner_menu[0] == genmenu_instance.dinner_menu['Monday']
     assert my_dinner_menu[1] == genmenu_instance.dinner_menu['Tuesday']
+
+def test_insert_dinners_with_file(tmpdir):
+    file_object = tmpdir.mkdir("sub").join('my_dinners.json')
+    file_object.write(my_dinners_json)
+    #test_file = file_object.open()
+    #test_file.close()
+    genmenu_instance = GenMenu()
+    genmenu_instance.insert_dinner_menu(file_object, file_format='json')
+
+    assert 0 # Finish the test

@@ -22,31 +22,33 @@ class GenMenu(object):
 
     def __init__(self, logging_level='info'):
         """
-        logging_level: disable, debug, info, warning, error or critical
+        Valid logging_level: debug, info, warning, error or critical
+
+        These values are correlated with the log levels in logging module
         """
 
         logger = logging.getLogger(__name__)
         formatter = logging.Formatter(
                 '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
         )
-        ch = logging.StreamHandler()
-        ch.setFormatter(formatter)
-        logger.addHandler(ch)
+        std_handler = logging.StreamHandler()
+        std_handler.setFormatter(formatter)
+        logger.addHandler(std_handler)
 
-        if logging_level == 'disable':
-            logger.disabled = True
-        else:
-            log_levels = {
-                'debug': logging.DEBUG,
-                'info': logging.INFO,
-                'warning': logging.WARNING,
-                'error': logging.ERROR,
-                'critical': logging.CRITICAL,
-            }
+        log_levels = {
+            'debug': logging.DEBUG,
+            'info': logging.INFO,
+            'warning': logging.WARNING,
+            'error': logging.ERROR,
+            'critical': logging.CRITICAL,
+        }
 
-            logger.setLevel(log_levels.get(logging_level))
+        if not logging_level in log_levels.keys():
+            raise ValueError("Invalid logging_level '{0}'".format(logging_level))
 
+        logger.setLevel(log_levels.get(logging_level))
         self.logger = logger
+
 
     my_menu = {
         'Monday': {'lunch': '', 'dinner': ''},

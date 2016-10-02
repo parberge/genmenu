@@ -2,12 +2,18 @@
 
 from menuGenerator import GenMenu
 import pytest
-import json
 import os
 
 my_lunch_menu = ['Köttbullar', 'hamburgare' ]
 my_dinner_menu = ['Pizza', 'Pasta carbonara' ]
-#my_dinners_json = json.dumps(my_dinner_menu)
+
+
+def test_logging_debug():
+    test_instance = GenMenu(logging_level='debug')
+    # Defined in the logging class
+    debug_int_value = 10
+    assert test_instance.logger.getEffectiveLevel() == debug_int_value
+    assert 0
 
 @pytest.fixture
 def genmenu_instance():

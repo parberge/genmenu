@@ -6,17 +6,6 @@ import sys
 
 class GenMenu(object):
 
-    import logging
-
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
-    formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    )
-
-    ch = logging.StreamHandler()
-    ch.setFormatter(formatter)
-    logger.addHandler(ch)
 
     week_days = [
         'Monday',
@@ -30,6 +19,34 @@ class GenMenu(object):
 
     lunch_menu = dict.fromkeys(week_days)
     dinner_menu = dict.fromkeys(week_days)
+
+    def __init__(self, logging_level='info'):
+        """
+        logging_level: disable, debug, info, warning, error or critical
+        """
+
+        logger = logging.getLogger(__name__)
+        formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+        ch = logging.StreamHandler()
+        ch.setFormatter(formatter)
+        logger.addHandler(ch)
+
+        if logging_level == 'disable':
+            logger.disabled = True
+        else:
+            log_levels = {
+                'debug': logging.DEBUG,
+                'info': logging.INFO,
+                'warning': logging.WARNING,
+                'error': logging.ERROR,
+                'critical': logging.CRITICAL,
+            }
+
+            logger.setLevel(log_levels.get(logging_level))
+
+        self.logger = logger
 
     my_menu = {
         'Monday': {'lunch': '', 'dinner': ''},

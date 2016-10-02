@@ -13,7 +13,10 @@ def test_logging_debug():
     # Defined in the logging class
     debug_int_value = 10
     assert test_instance.logger.getEffectiveLevel() == debug_int_value
-    assert 0
+
+def test_logging_faulty_value():
+    with pytest.raises(ValueError):
+        GenMenu(logging_level='not valid value')
 
 @pytest.fixture
 def genmenu_instance():

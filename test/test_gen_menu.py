@@ -7,7 +7,7 @@ import os
 
 my_lunch_menu = ['Köttbullar', 'hamburgare' ]
 my_dinner_menu = ['Pizza', 'Pasta carbonara' ]
-my_dinners_json = json.dumps(my_dinner_menu)
+#my_dinners_json = json.dumps(my_dinner_menu)
 
 @pytest.fixture
 def genmenu_instance():
@@ -40,18 +40,10 @@ def test_generate_menu(genmenu_instance):
     assert my_lunch_menu[0] == genmenu_instance.my_menu['Monday']['lunch']
     assert my_dinner_menu[0] == genmenu_instance.my_menu['Monday']['dinner']
 
-def test_insert_dinners_json():
+def test_insert_dinners_with_json_file():
+    base_dir = os.path.dirname(__file__)
+    test_file = os.path.join(base_dir, 'test_dinners.json')
     genmenu_instance = GenMenu()
-    genmenu_instance.insert_dinner_menu(my_dinners_json, file_format='json')
-    assert my_dinner_menu[0] == genmenu_instance.dinner_menu['Monday']
-    assert my_dinner_menu[1] == genmenu_instance.dinner_menu['Tuesday']
-
-def test_insert_dinners_with_file(tmpdir):
-    file_object = tmpdir.mkdir("sub").join('my_dinners.json')
-    file_object.write(my_dinners_json)
-    #test_file = file_object.open()
-    #test_file.close()
-    genmenu_instance = GenMenu()
-    genmenu_instance.insert_dinner_menu(file_object, file_format='json')
-
-    assert 0 # Finish the test
+    genmenu_instance.insert_dinner_menu(test_file, file_format='json')
+    assert genmenu_instance.dinner_menu['Monday'] == 'Pizza'
+    assert genmenu_instance.dinner_menu['Tuesday'] == 'Pasta carbonara'

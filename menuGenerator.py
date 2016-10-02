@@ -1,6 +1,22 @@
 #!/usr/bin/env python
 
+import logging
+import json
+import sys
+
 class GenMenu(object):
+
+    import logging
+
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+
+    ch = logging.StreamHandler()
+    ch.setFormatter(formatter)
+    logger.addHandler(ch)
 
     week_days = [
         'Monday',
@@ -47,9 +63,13 @@ class GenMenu(object):
         """
 
         if file_format == 'json':
-            inpt = GenMenu.convert_json(inpt)
+            with open(inpt, 'r') as f:
+                food_items = json.load(f)
+        else:
+            food_items = inpt
 
-        self.dinner_menu = GenMenu.populate_menu(self.dinner_menu, inpt)
+        self.logger.debug('food items is:{0}'.format(food_items))
+        self.dinner_menu = GenMenu.populate_menu(self.dinner_menu, food_items)
 
     @staticmethod
     def convert_json(json_obj):

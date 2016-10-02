@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from menugen import GenMenu
+from genmenu import GenMenu
 import pytest
 import os
 

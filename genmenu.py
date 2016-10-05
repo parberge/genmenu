@@ -1,8 +1,7 @@
-#!/usr/bin/env python
-
 import logging
 import json
 import sys
+import random
 
 class GenMenu(object):
 
@@ -71,7 +70,7 @@ class GenMenu(object):
         self.lunch_menu = GenMenu.populate_menu(self.lunch_menu, inpt)
 
 
-    def insert_dinner_menu(self, inpt, file_format=None):
+    def insert_dinner_menu(self, inpt, file_format=None, random=False):
         """
         Inserts a list of dinners into the menu
 
@@ -85,10 +84,21 @@ class GenMenu(object):
             with open(inpt, 'r') as f:
                 food_items = json.load(f)
         else:
-            food_items = inpt
+            food_items = list(inpt)
+
+        if random:
+            self.logger.debug("Randomizing food_items")
+            GenMenu.randomize(food_items)
 
         self.logger.debug('food items is:{0}'.format(food_items))
         self.dinner_menu = GenMenu.populate_menu(self.dinner_menu, food_items)
+
+    @staticmethod
+    def randomize(lst):
+        """
+        Returns the list in random order
+        """
+        return random.shuffle(lst)
 
     @staticmethod
     def convert_json(json_obj):

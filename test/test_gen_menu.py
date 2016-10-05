@@ -5,7 +5,16 @@ import pytest
 import os
 
 my_lunch_menu = ['Köttbullar', 'hamburgare' ]
-my_dinner_menu = ['Pizza', 'Pasta carbonara' ]
+my_dinner_menu = [
+    'Pizza',
+    'Pasta carbonara',
+    'Burgers',
+    'Hot dogs',
+    'Salad',
+    'Soup',
+    'Phad Thai',
+    'Omelette',
+]
 
 
 def test_logging_debug():
@@ -56,3 +65,17 @@ def test_insert_dinners_with_json_file():
     genmenu_instance.insert_dinner_menu(test_file, file_format='json')
     assert genmenu_instance.dinner_menu['Monday'] == 'Pizza'
     assert genmenu_instance.dinner_menu['Tuesday'] == 'Pasta carbonara'
+
+def test_insert_random_dinners():
+    genmenu_instance = GenMenu()
+    genmenu_instance.insert_dinner_menu(my_dinner_menu, random=True)
+    for day in genmenu_instance.week_days:
+        assert genmenu_instance.dinner_menu[day] in my_dinner_menu
+
+def test_randomize():
+    genmenu_instance = GenMenu()
+    test_list1 = [x for x in range(100)]
+    test_list2 = list(test_list1)
+    genmenu_instance.randomize(test_list1)
+    assert test_list1 != test_list2
+

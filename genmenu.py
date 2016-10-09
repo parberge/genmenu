@@ -1,10 +1,9 @@
 import logging
 import json
-import sys
 import random
 
-class GenMenu(object):
 
+class GenMenu(object):
 
     week_days = [
         'Monday',
@@ -42,12 +41,11 @@ class GenMenu(object):
             'critical': logging.CRITICAL,
         }
 
-        if not logging_level in log_levels.keys():
+        if logging_level not in log_levels.keys():
             raise ValueError("Invalid logging_level '{0}'".format(logging_level))
 
         logger.setLevel(log_levels.get(logging_level))
         self.logger = logger
-
 
     my_menu = {
         'Monday': {'lunch': '', 'dinner': ''},
@@ -63,14 +61,13 @@ class GenMenu(object):
         """
         Inserts a list of lunches into the menu
 
-        :param lst: A list of lunches.
         First item will be Monday and next Tuesday and so forth
+        :param inpt: Iterator containing lunch items
         """
 
         self.lunch_menu = GenMenu.populate_menu(self.lunch_menu, inpt)
 
-
-    def insert_dinner_menu(self, inpt, file_format=None, random=False):
+    def insert_dinner_menu(self, inpt, file_format=None, randomize=False):
         """
         Inserts a list of dinners into the menu
 
@@ -86,7 +83,7 @@ class GenMenu(object):
         else:
             food_items = list(inpt)
 
-        if random:
+        if randomize:
             self.logger.debug("Randomizing food_items")
             GenMenu.randomize(food_items)
 

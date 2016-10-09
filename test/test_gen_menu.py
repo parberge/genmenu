@@ -68,7 +68,7 @@ def test_insert_dinners_with_json_file():
 
 def test_insert_random_dinners():
     genmenu_instance = GenMenu()
-    genmenu_instance.insert_dinner_menu(my_dinner_menu, random=True)
+    genmenu_instance.insert_dinner_menu(my_dinner_menu, randomize=True)
     for day in genmenu_instance.week_days:
         assert genmenu_instance.dinner_menu[day] in my_dinner_menu
 

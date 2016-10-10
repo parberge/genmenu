@@ -18,6 +18,16 @@ class GenMenu(object):
     lunch_menu = dict.fromkeys(week_days)
     dinner_menu = dict.fromkeys(week_days)
 
+    my_menu = {
+        'Monday': {'lunch': '', 'dinner': ''},
+        'Tuesday': {'lunch': '', 'dinner': ''},
+        'Wednesday': {'lunch': '', 'dinner': ''},
+        'Thursday': {'lunch': '', 'dinner': ''},
+        'Friday': {'lunch': '', 'dinner': ''},
+        'Saturday': {'lunch': '', 'dinner': ''},
+        'Sunday': {'lunch': '', 'dinner': ''},
+    }
+
     def __init__(self, logging_level='info'):
         """
         Valid logging_level: debug, info, warning, error or critical
@@ -47,15 +57,7 @@ class GenMenu(object):
         logger.setLevel(log_levels.get(logging_level))
         self.logger = logger
 
-    my_menu = {
-        'Monday': {'lunch': '', 'dinner': ''},
-        'Tuesday': {'lunch': '', 'dinner': ''},
-        'Wednesday': {'lunch': '', 'dinner': ''},
-        'Thursday': {'lunch': '', 'dinner': ''},
-        'Friday': {'lunch': '', 'dinner': ''},
-        'Saturday': {'lunch': '', 'dinner': ''},
-        'Sunday': {'lunch': '', 'dinner': ''},
-    }
+
 
     def insert_lunch_menu(self, inpt):
         """

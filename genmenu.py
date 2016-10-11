@@ -100,14 +100,6 @@ class GenMenu(object):
         """
         return random.shuffle(lst)
 
-    @staticmethod
-    def convert_json(json_obj):
-        """
-        Converts the json array to a list
-        """
-        import json
-
-        return json.loads(json_obj)
 
     @staticmethod
     def populate_menu(menu_dict, lst):

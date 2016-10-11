@@ -18,15 +18,6 @@ class GenMenu(object):
     lunch_menu = dict.fromkeys(week_days)
     dinner_menu = dict.fromkeys(week_days)
 
-    my_menu = {
-        'Monday': {'lunch': '', 'dinner': ''},
-        'Tuesday': {'lunch': '', 'dinner': ''},
-        'Wednesday': {'lunch': '', 'dinner': ''},
-        'Thursday': {'lunch': '', 'dinner': ''},
-        'Friday': {'lunch': '', 'dinner': ''},
-        'Saturday': {'lunch': '', 'dinner': ''},
-        'Sunday': {'lunch': '', 'dinner': ''},
-    }
 
     def __init__(self, logging_level='info'):
         """
@@ -34,6 +25,17 @@ class GenMenu(object):
 
         These values are correlated with the log levels in logging module
         """
+
+        # Probably a cleaner way of creating this dict...
+        self.my_menu = {
+            'Monday': {'lunch': '', 'dinner': ''},
+            'Tuesday': {'lunch': '', 'dinner': ''},
+            'Wednesday': {'lunch': '', 'dinner': ''},
+            'Thursday': {'lunch': '', 'dinner': ''},
+            'Friday': {'lunch': '', 'dinner': ''},
+            'Saturday': {'lunch': '', 'dinner': ''},
+            'Sunday': {'lunch': '', 'dinner': ''},
+        }
 
         logger = logging.getLogger(__name__)
         formatter = logging.Formatter(
@@ -130,3 +132,6 @@ class GenMenu(object):
         for k in self.dinner_menu:
             if self.dinner_menu[k]:
                 self.my_menu[k]['dinner'] = self.dinner_menu[k]
+
+if __name__ == '__main__':
+    pass

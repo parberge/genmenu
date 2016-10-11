@@ -18,7 +18,6 @@ class GenMenu(object):
     lunch_menu = dict.fromkeys(week_days)
     dinner_menu = dict.fromkeys(week_days)
 
-
     def __init__(self, logging_level='info'):
         """
         Valid logging_level: debug, info, warning, error or critical
@@ -59,8 +58,6 @@ class GenMenu(object):
         logger.setLevel(log_levels.get(logging_level))
         self.logger = logger
 
-
-
     def insert_lunch_menu(self, inpt):
         """
         Inserts a list of lunches into the menu
@@ -70,7 +67,6 @@ class GenMenu(object):
         """
 
         self.populate_menu(self.lunch_menu, inpt)
-
 
     def insert_dinner_menu(self, inpt, file_format=None, randomize=False):
         """
@@ -101,7 +97,6 @@ class GenMenu(object):
         """
         return random.shuffle(lst)
 
-
     def populate_menu(self, menu_dict, lst):
         """
         Populate a menu with the items from a list
@@ -123,6 +118,3 @@ class GenMenu(object):
         for k in self.dinner_menu:
             if self.dinner_menu[k]:
                 self.my_menu[k]['dinner'] = self.dinner_menu[k]
-
-if __name__ == '__main__':
-    pass

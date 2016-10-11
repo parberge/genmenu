@@ -76,6 +76,6 @@ def test_randomize():
     genmenu_instance = GenMenu()
     test_list1 = [x for x in range(100)]
     test_list2 = list(test_list1)
-    genmenu_instance.randomize(test_list1)
+    genmenu_instance._randomize(test_list1)
     assert test_list1 != test_list2
 

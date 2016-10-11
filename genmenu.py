@@ -89,13 +89,12 @@ class GenMenu(object):
 
         if randomize:
             self.logger.debug("Randomizing food_items")
-            GenMenu.randomize(food_items)
+            self._randomize(food_items)
 
         self.logger.debug('food items is:{0}'.format(food_items))
         self.dinner_menu = GenMenu.populate_menu(self.dinner_menu, food_items)
 
-    @staticmethod
-    def randomize(lst):
+    def _randomize(self, lst):
         """
         Returns the list in random order
         """

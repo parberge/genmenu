@@ -66,7 +66,7 @@ class GenMenu(object):
         :param inpt: Iterator containing lunch items
         """
 
-        self.populate_menu(self.lunch_menu, inpt)
+        self._populate_menu(self.lunch_menu, inpt)
 
     def insert_dinner_menu(self, inpt, file_format=None, randomize=False):
         """
@@ -89,7 +89,7 @@ class GenMenu(object):
             self._randomize(food_items)
 
         self.logger.debug('food items is:{0}'.format(food_items))
-        self.populate_menu(self.dinner_menu, food_items)
+        self._populate_menu(self.dinner_menu, food_items)
 
     def _randomize(self, lst):
         """
@@ -97,7 +97,7 @@ class GenMenu(object):
         """
         return random.shuffle(lst)
 
-    def populate_menu(self, menu_dict, lst):
+    def _populate_menu(self, menu_dict, lst):
         """
         Populate a menu with the items from a list
         """

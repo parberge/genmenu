@@ -1,6 +1,6 @@
 # genmenu
 ## INTRO
-A tiny cli python 3 script to generate a weekly meal menu.
+A python script to generate a weekly meal menu.
 ## Why
 For me it's quite an effort every week to plan the dinners.
 This is an attempt to automate it.

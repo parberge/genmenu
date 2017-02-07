@@ -2,8 +2,7 @@
 ## INTRO
 A python script to generate a weekly meal menu.
 ## Why
-For me it's quite an effort every week to plan the dinners.
-This is an attempt to automate it.
+To try to simplify and automate the process of planning what to eat
 ## Example
 See `genmenu_script.py.example`
 
@@ -42,3 +41,5 @@ Dinner:
 * Simple DB backend (probably nosql. What DB to use?)
 * Fetch recipies from external resources (what resources to use?)
 * Make it multilingual (what tool and how to do that?)
+* The option to specify how many days/weeks to plan for
+* Add the dates to the days

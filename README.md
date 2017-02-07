@@ -37,3 +37,8 @@ Sunday
 Lunch: 
 Dinner: 
 ```
+## What I want to add
+* A simple webpage (what web framework to use?)
+* Simple DB backend (probably nosql. What DB to use?)
+* Fetch recipies from external resources (what resources to use?)
+* Make it multilingual (what tool and how to do that?)

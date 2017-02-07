@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/peerster/genmenu.svg?branch=master)](https://travis-ci.org/peerster/genmenu)
 # genmenu
 ## INTRO
 A meal menu/planner written in python.

@@ -1,8 +1,8 @@
 # genmenu
 ## INTRO
-A python script to generate a weekly meal menu.
+A meal menu/planner written in python.
 ## Why
-To try to simplify and automate the process of planning what to eat
+To try to simplify and automate the process of planning what to eat.
 ## Example
 See `genmenu_script.py.example`
 

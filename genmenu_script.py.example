@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from genmenu import GenMenu
+from genmenu.genmenu import GenMenu
 
 my_lunch_menu = [
     'Lunch 1',

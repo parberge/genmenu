@@ -23,16 +23,11 @@ class GenMenu(object):
         logging_level: The wanted logging level that exists in logging module
         """
 
-        # Probably a cleaner way of creating this dict...
-        self.my_menu = {
-            'Monday': {'lunch': '', 'dinner': ''},
-            'Tuesday': {'lunch': '', 'dinner': ''},
-            'Wednesday': {'lunch': '', 'dinner': ''},
-            'Thursday': {'lunch': '', 'dinner': ''},
-            'Friday': {'lunch': '', 'dinner': ''},
-            'Saturday': {'lunch': '', 'dinner': ''},
-            'Sunday': {'lunch': '', 'dinner': ''},
-        }
+        # Create the dictionary structure
+        day_dict = {'lunch': '', 'dinner': ''}
+        self.my_menu = dict()
+        for day in self.week_days:
+            self.my_menu[day] = day_dict.copy()
 
         logger = logging.getLogger(__name__)
         formatter = logging.Formatter(

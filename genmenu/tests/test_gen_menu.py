@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from genmenu import GenMenu
+from genmenu.genmenu import GenMenu
 import pytest
 import os
 

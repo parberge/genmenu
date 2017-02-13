@@ -18,11 +18,9 @@ class GenMenu(object):
     lunch_menu = dict.fromkeys(week_days)
     dinner_menu = dict.fromkeys(week_days)
 
-    def __init__(self, logging_level='info'):
+    def __init__(self, logging_level=logging.INFO):
         """
-        Valid logging_level: debug, info, warning, error or critical
-
-        These values are correlated with the log levels in logging module
+        logging_level: The wanted logging level that exists in logging module
         """
 
         # Probably a cleaner way of creating this dict...
@@ -44,18 +42,7 @@ class GenMenu(object):
         std_handler.setFormatter(formatter)
         logger.addHandler(std_handler)
 
-        log_levels = {
-            'debug': logging.DEBUG,
-            'info': logging.INFO,
-            'warning': logging.WARNING,
-            'error': logging.ERROR,
-            'critical': logging.CRITICAL,
-        }
-
-        if logging_level not in log_levels.keys():
-            raise ValueError("Invalid logging_level '{0}'".format(logging_level))
-
-        logger.setLevel(log_levels.get(logging_level))
+        logger.setLevel(logging_level)
         self.logger = logger
 
     def insert_lunch_menu(self, inpt):

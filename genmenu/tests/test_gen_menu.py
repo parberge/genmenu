@@ -4,7 +4,7 @@ from genmenu.genmenu import GenMenu
 import pytest
 import os
 
-my_lunch_menu = ['Köttbullar', 'hamburgare' ]
+my_lunch_menu = ['Köttbullar', 'hamburgare']
 my_dinner_menu = [
     'Pizza',
     'Pasta carbonara',
@@ -17,16 +17,6 @@ my_dinner_menu = [
 ]
 
 
-def test_logging_debug():
-    test_instance = GenMenu(logging_level='debug')
-    # Defined in the logging class
-    debug_int_value = 10
-    assert test_instance.logger.getEffectiveLevel() == debug_int_value
-
-def test_logging_faulty_value():
-    with pytest.raises(ValueError):
-        GenMenu(logging_level='not valid value')
-
 @pytest.fixture
 def genmenu_instance():
     genmenu_obj = GenMenu()
@@ -34,29 +24,35 @@ def genmenu_instance():
     genmenu_obj.insert_dinner_menu(my_dinner_menu)
     return genmenu_obj
 
+
 def test_lunch_dict(genmenu_instance):
     assert isinstance(genmenu_instance.lunch_menu, dict)
     for day in genmenu_instance.week_days:
         assert day in genmenu_instance.lunch_menu
+
 
 def test_dinner_dict(genmenu_instance):
     assert isinstance(genmenu_instance.dinner_menu, dict)
     for day in genmenu_instance.week_days:
         assert day in genmenu_instance.dinner_menu
 
+
 def test_insert_lunch_menu(genmenu_instance):
     assert my_lunch_menu[0] == genmenu_instance.lunch_menu['Monday']
     assert my_lunch_menu[1] == genmenu_instance.lunch_menu['Tuesday']
 
+
 def test_insert_dinner_menu(genmenu_instance):
     assert my_dinner_menu[0] == genmenu_instance.dinner_menu['Monday']
     assert my_dinner_menu[1] == genmenu_instance.dinner_menu['Tuesday']
+
 
 def test_generate_menu(genmenu_instance):
     assert isinstance(genmenu_instance.my_menu, dict)
     genmenu_instance.generate_menu()
     assert my_lunch_menu[0] == genmenu_instance.my_menu['Monday']['lunch']
     assert my_dinner_menu[0] == genmenu_instance.my_menu['Monday']['dinner']
+
 
 def test_insert_dinners_with_json_file():
     base_dir = os.path.dirname(__file__)
@@ -66,11 +62,13 @@ def test_insert_dinners_with_json_file():
     assert genmenu_instance.dinner_menu['Monday'] == 'Pizza'
     assert genmenu_instance.dinner_menu['Tuesday'] == 'Pasta carbonara'
 
+
 def test_insert_random_dinners():
     genmenu_instance = GenMenu()
     genmenu_instance.insert_dinner_menu(my_dinner_menu, randomize=True)
     for day in genmenu_instance.week_days:
         assert genmenu_instance.dinner_menu[day] in my_dinner_menu
+
 
 def test_randomize():
     genmenu_instance = GenMenu()
@@ -78,4 +76,3 @@ def test_randomize():
     test_list2 = list(test_list1)
     genmenu_instance._randomize(test_list1)
     assert test_list1 != test_list2
-

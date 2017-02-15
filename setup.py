@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(name='genmenu',
-      version='0.1',
+      version='0.1.1',
       description='A meal menu planner',
       url='https://github.com/peerster/genmenu',
       author='Pär Berge',

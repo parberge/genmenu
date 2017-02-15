@@ -83,3 +83,9 @@ def test_menu_ordered_days():
     genmenu_instance = GenMenu()
     for day1, day2 in zip(genmenu_instance.week_days, genmenu_instance.my_menu.keys()):
         assert day1 == day2
+
+
+def test_wrong_type():
+    genmenu_instance = GenMenu()
+    with pytest.raises(TypeError):
+        genmenu_instance.insert_lunch_menu('string')

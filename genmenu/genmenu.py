@@ -84,7 +84,8 @@ class GenMenu(object):
         """
         Populate a menu with the items from a list
         """
-
+        if not isinstance(lst, list):
+            raise TypeError('Wrong type. Should be a list')
         for day, food_item in zip(GenMenu.week_days, lst):
             menu_dict[day] = food_item
 

@@ -1,6 +1,7 @@
 import logging
 import json
 import random
+from collections import OrderedDict
 
 
 class GenMenu(object):
@@ -25,7 +26,7 @@ class GenMenu(object):
 
         # Create the dictionary structure
         day_dict = {'lunch': '', 'dinner': ''}
-        self.my_menu = dict()
+        self.my_menu = OrderedDict()
         for day in self.week_days:
             self.my_menu[day] = day_dict.copy()
 

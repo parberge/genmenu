@@ -76,3 +76,10 @@ def test_randomize():
     test_list2 = list(test_list1)
     genmenu_instance._randomize(test_list1)
     assert test_list1 != test_list2
+
+
+# Make sure the week days are in correct order
+def test_menu_ordered_days():
+    genmenu_instance = GenMenu()
+    for day1, day2 in zip(genmenu_instance.week_days, genmenu_instance.my_menu.keys()):
+        assert day1 == day2

@@ -4,38 +4,20 @@
 A meal menu/planner written in python.
 ## Why
 To try to simplify and automate the process of planning what to eat.
-## Example
-See `genmenu_script.py.example`
-
+## Install
 ```
-$ python3 genmenu_script.py.example
-Monday
-Lunch: Lunch 1
-Dinner: Dinner 1
-
-Tuesday
-Lunch: Lunch 2
-Dinner: Dinner 2
-
-Wednesday
-Lunch: Lunch 3
-Dinner: Dinner 3
-
-Thursday
-Lunch: Lunch 4
-Dinner: Dinner 4
-
-Friday
-Lunch: Lunch 5
-Dinner: Dinner 5
-
-Saturday
-Lunch: 
-Dinner: 
-
-Sunday
-Lunch: 
-Dinner: 
+pip install genmenu
+```
+## Example
+```
+>>> from genmenu import genmenu
+>>> example_menu = genmenu.GenMenu()
+>>> example_menu.insert_lunch_menu(['spam', 'eggs'])
+>>> example_menu.insert_dinner_menu(['spam', 'eggs'])
+>>> example_menu.generate_menu()
+>>> example_menu.my_menu
+OrderedDict([('Monday', {'dinner': 'spam', 'lunch': 'spam'}), ('Tuesday', {'dinner': 'eggs', 'lunch': 'eggs'}), ('Wednesday', {'dinner': '', 'lunch': ''}), ('Thursday', {'dinner': '', 'lunch': ''}), ('Friday', {'dinner': '', 'lunch': ''}), ('Saturday', {'dinner': '', 'lunch': ''}), ('Sunday', {'dinner': '', 'lunch': ''})])
+>>>
 ```
 ## What I want to add
 * A simple webpage (what web framework to use?)

@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 from setuptools import setup
+from codecs import open
+
+with open('README.md', 'r', 'utf-8') as f:
+        readme = f.read()
 
 setup(name='genmenu',
-      version='0.1.1',
+      version='0.1.3',
       description='A meal menu planner',
+      long_description=readme,
       url='https://github.com/peerster/genmenu',
       author='Pär Berge',
       author_email='paer.berge@gmail.com',

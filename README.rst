@@ -1,11 +1,9 @@
-.. image:: https://travis-ci.org/peerster/genmenu.svg?branch=master
-   :target: https://travis-ci.org/peerster/genmenu
-   
-=====
-genmenu
-=====
-A meal menu/planner written in python.
+genmenu: A meal planner written in python
+========================================
 
+.. image:: https://travis-ci.org/peerster/genmenu.svg?branch=master
+    :target: https://travis-ci.org/peerster/genmenu
+   
 Why
 --------
 To try to simplify and automate the process of planning what to

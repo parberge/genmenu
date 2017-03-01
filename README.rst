@@ -1,23 +1,23 @@
 genmenu: A meal planner written in python
-========================================
+=========================================
 
 .. image:: https://travis-ci.org/peerster/genmenu.svg?branch=master
     :target: https://travis-ci.org/peerster/genmenu
    
 Why
---------
+---
 To try to simplify and automate the process of planning what to
 eat.
 
 Install
---------
+-------
 
 .. code-block:: bash
 
     $ pip install genmenu
 
 Example
---------
+-------
 .. code-block:: python
 
     >>> example_menu = genmenu.GenMenu()
@@ -37,5 +37,3 @@ What I want to add
 -  Make it multilingual (what tool and how to do that?)
 -  The option to specify how many days/weeks to plan for
 -  Add the dates to the days
-
-

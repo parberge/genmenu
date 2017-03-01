@@ -1,7 +1,20 @@
-|Build Status| # genmenu ## INTRO A meal menu/planner written in python.
-## Why To try to simplify and automate the process of planning what to
-eat. ## Install ``pip install genmenu`` ## Example
+|Build Status| 
+=====
+genmenu
+=====
+A meal menu/planner written in python.
 
+Why
+--------
+To try to simplify and automate the process of planning what to
+eat.
+
+Install
+--------
+``pip install genmenu``
+
+Example
+--------
 ::
 
     >>> example_menu = genmenu.GenMenu()

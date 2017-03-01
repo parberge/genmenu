@@ -11,11 +11,14 @@ eat.
 
 Install
 --------
-``pip install genmenu``
+
+.. code-block:: bash
+
+    $ pip install genmenu
 
 Example
 --------
-::
+.. code-block:: python
 
     >>> example_menu = genmenu.GenMenu()
     >>> example_menu.insert_lunch_menu(['spam', 'eggs'])

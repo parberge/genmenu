@@ -1,4 +1,6 @@
-|Build Status| 
+.. image:: https://travis-ci.org/peerster/genmenu.svg?branch=master
+   :target: https://travis-ci.org/peerster/genmenu
+   
 =====
 genmenu
 =====
@@ -35,5 +37,4 @@ What I want to add
 -  The option to specify how many days/weeks to plan for
 -  Add the dates to the days
 
-.. |Build Status| image:: https://travis-ci.org/peerster/genmenu.svg?branch=master
-   :target: https://travis-ci.org/peerster/genmenu
+
